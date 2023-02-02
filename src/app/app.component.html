@@ -1,4 +1,69 @@
-<div class="container">
+<div class="search-container">
+  <form #form="ngForm" (submit)="onSubmit()">
+    <input type="text" placeholder="Buscar cidade..." name="city"
+    [(ngModel)]="cityName">
+  </form>
+</div>
+
+<div class="container" *ngIf="weatherData">
+  <div class="container__upper-data">
+    <img src="assets/img/hot.jpg" alt="Hot" *ngIf="weatherData.main.temp > 15" />
+    <img src="assets/img/cold.jpg" alt="Cold" *ngIf="weatherData.main.temp <= 15" />
+
+    <div class="container__upper-data__weather-data">
+      <div class="container__upper-data__weather-data__location">{{ weatherData.name }}</div>
+      <div class="container__upper-data__weather-data__temperature">{{ weatherData.main.temp | number: '1.0-0' }}°C</div>
+    </div>
+  </div>
+  <div class="container__lower-data">
+    <div class="container__lower-data__more-info-label">
+      Mais informações
+    </div>
+    <div class="container__lower-data__more-info-container">
+      <div class="container__lower-data__more-info-container__info-block">
+        <div class="container__lower-data__more-info-container__info-block__label">
+          <img src="assets/img/min.png">
+          <span>min</span>
+        </div>
+        <div class="container__lower-data__more-info-container__info-block__value">
+          {{ weatherData.main.temp_min | number: '1.0-0' }}°
+        </div>
+      </div>
+
+      <div class="container__lower-data__more-info-container__info-block">
+        <div class="container__lower-data__more-info-container__info-block__label">
+          <img src="assets/img/max.png">
+          <span>max</span>
+        </div>
+        <div class="container__lower-data__more-info-container__info-block__value">
+          {{ weatherData.main.temp_max | number: '1.0-0' }}°
+        </div>
+      </div>
+
+      <div class="container__lower-data__more-info-container__info-block">
+        <div class="container__lower-data__more-info-container__info-block__label">
+          <img src="assets/img/humidity.png">
+          <span>humidity</span>
+        </div>
+        <div class="container__lower-data__more-info-container__info-block__value">
+          {{ weatherData.main.humidity }}%
+        </div>
+      </div>
+
+      <div class="container__lower-data__more-info-container__info-block">
+        <div class="container__lower-data__more-info-container__info-block__label">
+          <img src="assets/img/wind.png">
+          <span>wind</span>
+        </div>
+        <div class="container__lower-data__more-info-container__info-block__value">
+          {{ weatherData.wind.speed }} km/h
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="container">
   <div class="container__upper-data">
     <img src="assets/img/hot.jpg" alt="Hot" *ngIf="14 > 15" />
     <img src="assets/img/cold.jpg" alt="Cold" *ngIf="14 <= 15" />
@@ -54,6 +119,7 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
+
 
 <router-outlet></router-outlet>
