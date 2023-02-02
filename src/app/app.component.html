@@ -1,1 +1,59 @@
+<div class="container">
+  <div class="container__upper-data">
+    <img src="assets/img/hot.jpg" alt="Hot" *ngIf="14 > 15" />
+    <img src="assets/img/cold.jpg" alt="Cold" *ngIf="14 <= 15" />
+
+    <div class="container__upper-data__weather-data">
+      <div class="container__upper-data__weather-data__location">Wellington</div>
+      <div class="container__upper-data__weather-data__temperature">{{ 14.40 | number }}°C</div>
+    </div>
+  </div>
+  <div class="container__lower-data">
+    <div class="container__lower-data__more-info-label">
+      Mais informações
+    </div>
+    <div class="container__lower-data__more-info-container">
+      <div class="container__lower-data__more-info-container__info-block">
+        <div class="container__lower-data__more-info-container__info-block__label">
+          <img src="assets/img/min.png">
+          <span>min</span>
+        </div>
+        <div class="container__lower-data__more-info-container__info-block__value">
+          10°C
+        </div>
+      </div>
+
+      <div class="container__lower-data__more-info-container__info-block">
+        <div class="container__lower-data__more-info-container__info-block__label">
+          <img src="assets/img/max.png">
+          <span>max</span>
+        </div>
+        <div class="container__lower-data__more-info-container__info-block__value">
+          20°C
+        </div>
+      </div>
+
+      <div class="container__lower-data__more-info-container__info-block">
+        <div class="container__lower-data__more-info-container__info-block__label">
+          <img src="assets/img/humidity.png">
+          <span>humidity</span>
+        </div>
+        <div class="container__lower-data__more-info-container__info-block__value">
+          77%
+        </div>
+      </div>
+
+      <div class="container__lower-data__more-info-container__info-block">
+        <div class="container__lower-data__more-info-container__info-block__label">
+          <img src="assets/img/wind.png">
+          <span>wind</span>
+        </div>
+        <div class="container__lower-data__more-info-container__info-block__value">
+          11 km/h
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <router-outlet></router-outlet>
